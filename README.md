@@ -22,9 +22,6 @@ The system was controlled using an STM32 Nucleo-L476RG development board, which 
 
 https://youtube.com/shorts/zJc4XDnnLkc
 
-
-
-
 ## Hardware
 - [Back to top](#Table-of-Contents)
 - [Microcontroller](#microcontroller)
@@ -35,7 +32,10 @@ https://youtube.com/shorts/zJc4XDnnLkc
 - [Back to top](#Table-of-Contents)
 
 The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
-![Screenshot 2025-03-16 142309](https://github.com/user-attachments/assets/ad4143ad-f2fc-4ce5-9881-01eb9068ed2d)
+
+<p align="center">
+  ![Screenshot 2025-03-16 142309](https://github.com/user-attachments/assets/ad4143ad-f2fc-4ce5-9881-01eb9068ed2d)
+</p>
 
 
 ### Sensors
