@@ -6,7 +6,7 @@
 - [Hardware](#hardware)
 - [Sensors](#sensors)
 
-### Project Overview
+## Project Overview
 - [Back to top](#Table-of-Contents)
 
 This repository contains the ME-405 term project by Ethan Gray and Wyatt Eberhart. The objective of this project was to develop and implement a control system for a differential-drive robot, Romi, using MicroPython. Romi was programmed to autonomously navigate a predefined course (depicted in Figure 1) by utilizing three primary sensors: an inertial measurement unit (IMU), line sensors, and bump sensors. These sensors were integrated with the Romi chassis kit and combined with Pololu motors and a Pololu power distribution board.
