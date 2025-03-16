@@ -14,7 +14,7 @@ This repository contains the ME-405 term project by Ethan Gray and Wyatt Eberhar
 The system was controlled using an STM32 Nucleo-L476RG development board, which served as the main processing unit. Task execution was managed through a real-time scheduler, ensuring periodic execution with designated priorities. Within these scheduled tasks, a finite state machine (FSM) was implemented to enable Romi to know what section of the track it was on and react accordingly.
 
 Figure 1. Course Layout
-<img width="918" alt="Screenshot 2025-03-16 at 12 17 25 PM" src="https://github.com/user-attachments/assets/e54807d6-7c3c-4a50-a7fa-7a1dc3375aac" />
+[Game_Track.pdf](https://github.com/user-attachments/files/19274638/Game_Track.pdf)
 
 
 
