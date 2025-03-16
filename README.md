@@ -24,10 +24,35 @@ https://youtube.com/shorts/zJc4XDnnLkc
 
 ## Hardware
 - [Back to top](#Table-of-Contents)
+- [Romi Chassis and Components](#romi-chassis-and-components)
 - [Microcontroller](#microcontroller)
 - [Sensors](#sensors)
 - [Additional Components](#additional-components)
 - [Wiring Diagram](#wiring-diagram)
+
+### Romi Chassis and Components
+The main part of Romi from Pololu has the motors, encoders, power distribution board, and the chassis. The motors have a gearbox with a 120:1 ratio. The encoders have 12 ticks per revolution giving an encoder count of 1440 per revolution of the wheel. Romi takes 6 AA batteries to function propertly 
+
+<p align="center">
+  <img width="350" alt="[Screenshot 2025-03-16 160101" src="https://github.com/user-attachments/assets/f1b07fd9-ac19-4c26-b4b9-96e414122c30" />
+</p>
+<p align="center">
+  Figure ???. Romi Motor and Encoder Pair
+</p>
+
+<p align="center">
+  <img width="350" alt="[Screenshot 2025-03-16 160153" src="https://github.com/user-attachments/assets/8af7760e-e74b-4c70-9e59-c029caaecfe0" />
+</p>
+<p align="center">
+  Figure ???. Romi Power Distribution Board
+</p>
+
+<p align="center">
+  <img width="350" alt="[Screenshot 2025-03-16 160208" src="https://github.com/user-attachments/assets/0ec7f4de-23a0-4646-b721-331e287d3c96" />
+</p>
+<p align="center">
+  Figure ???. Romi Chassis
+</p>
 
 ### Microcontroller
 The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
