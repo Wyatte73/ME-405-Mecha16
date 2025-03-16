@@ -20,11 +20,16 @@ The system was controlled using an STM32 Nucleo-L476RG development board, which 
 
 https://youtube.com/shorts/zJc4XDnnLkc
 
-### Hardware
+## Hardware
+- [Back to top](#Table-of-Contents)
+
+### Sensors
 - [Back to top](#Table-of-Contents)
 
 ## Software
 - [Back to top](#Table-of-Contents)
+
+### Hardware Drivers
 
 The repository contains the main program file and all necessary hardware driver modules. [main.py](./main.py) is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing:
 
@@ -38,7 +43,9 @@ The repository contains the main program file and all necessary hardware driver 
 
 &nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py) – Implements a PID controller for motor speed regulation.
   
-Task scheduling and shared variable management are implemented using cotask.py and task_share.py. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
+### Task Diagram
+
+Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure _.A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
 &nbsp;&nbsp;&nbsp;&nbsp;Motor Control (Priority: 2, Period: 10ms):
 
@@ -70,11 +77,12 @@ Task scheduling and shared variable management are implemented using cotask.py a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Solely responsible for detecting wall contact and setting a bump flag share high when a wall is detected.
 
-<img width="445" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
+
+<p align="center">
+  <img width="445" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
+</p>
 <p align="center">
   Figure _. Task Diagram
 </p>
 
 
-### Sensors
-- [Back to top](#Table-of-Contents)
