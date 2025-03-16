@@ -26,7 +26,7 @@ https://youtube.com/shorts/zJc4XDnnLkc
 ## Software
 - [Back to top](#Table-of-Contents)
 
-The repository contains the main program file and all necessary hardware driver modules. main.py is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing:
+The repository contains the main program file and all necessary hardware driver modules. [main.py](./main.py) is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing:
 
 &nbsp;&nbsp;&nbsp;&nbsp;[encoder.py](./encoder.py) – Handles communication with the wheel encoders to measure position and velocity.  
 
@@ -69,6 +69,11 @@ Task scheduling and shared variable management are implemented using cotask.py a
 &nbsp;&nbsp;&nbsp;&nbsp;Bump Sensor Task (Priority 1, Period 10ms):
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Solely responsible for detecting wall contact and setting a bump flag share high when a wall is detected.
+
+<img width="445" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
+<p align="center">
+  Figure _. Task Diagram
+</p>
 
 
 ### Sensors
