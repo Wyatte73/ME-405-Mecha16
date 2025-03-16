@@ -27,7 +27,7 @@ The system was controlled using an STM32 Nucleo-L476RG development board, which 
   Figure 2. Final Build of Romi
 </p>
 
-https://youtube.com/shorts/zJc4XDnnLkc
+[![Watch the video](https://img.youtube.com/vi/zJc4XDnnLkc/maxresdefault.jpg)](https://www.youtube.com/shorts/zJc4XDnnLkc)
 
 ## Hardware
 - [Back to top](#Table-of-Contents)
