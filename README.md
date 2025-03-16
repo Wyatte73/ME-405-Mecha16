@@ -78,12 +78,11 @@ Standard mounting hardware was used and provided, but any way to mount the vario
 ### Wiring Diagram
 
 <p align="center">
-  <img width="350" alt="[Screenshot 2025-03-16 121300" src="https://github.com/user-attachments/assets/394eb799-5605-4b25-bab6-cdecb5da35c6" />
+  <img width="1093" alt="[Screenshot 2025-03-16 153800" src="https://github.com/user-attachments/assets/4b9bbbcd-4be2-4f62-b9b7-f1827ae09b97" />
 </p>
 <p align="center">
-  Figure ???. Romi Bump Sensor
+  Figure ???. Wiring Diagram
 </p>
-
 
 ## Software
 - [Back to top](#Table-of-Contents)
