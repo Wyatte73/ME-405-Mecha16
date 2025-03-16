@@ -7,3 +7,4 @@
   Figure 1. Wiring Diagram
 </p>
 
+https://youtube.com/shorts/zJc4XDnnLkc
