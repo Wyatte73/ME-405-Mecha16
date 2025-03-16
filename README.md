@@ -36,7 +36,7 @@ The repository contains the main program file and all necessary hardware driver 
 
 &nbsp;&nbsp;&nbsp;&nbsp;[line.py](./line.py) – Processes input from the line sensors to detect track boundaries. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py)– Implements a PID controller for motor speed regulation.
+&nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py) – Implements a PID controller for motor speed regulation.
   
 Task scheduling and shared variable management are implemented using cotask.py and task_share.py. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
