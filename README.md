@@ -27,6 +27,7 @@ https://youtube.com/shorts/zJc4XDnnLkc
 - [Microcontroller](#microcontroller)
 - [Sensors](#sensors)
 - [Additional Components](#additional-components)
+- [Wiring Diagram](#wiring-diagram)
 
 ### Microcontroller
 The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
@@ -72,7 +73,15 @@ A HC-05 bluetooth module was also implemented to be able to use the REPL over bl
   Figure ???. HC-05 Bluetooth Module
 </p>
 
-Standard mounting hardware was used and provided, but any way to mount the various sensors would suffice as long the sensors are mounted according to the manufacturer specifications.
+Standard mounting hardware was used and provided, but any way to mount the various sensors would suffice as long the sensors are mounted according to the manufacturer's specifications.
+
+### Wiring Diagram
+
+![Screenshot 2025-03-16 121300](https://github.com/user-attachments/assets/394eb799-5605-4b25-bab6-cdecb5da35c6)
+<p align="center">
+  Figure ???. Romi Bump Sensor
+</p>
+
 
 ## Software
 - [Back to top](#Table-of-Contents)
