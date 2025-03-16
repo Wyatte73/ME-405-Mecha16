@@ -28,15 +28,15 @@ https://youtube.com/shorts/zJc4XDnnLkc
 
 The repository contains the main program file and all necessary hardware driver modules. main.py is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing:
 
-&nbsp;&nbsp;&nbsp;&nbsp;[View encoder.py](./encoder.py) – Handles communication with the wheel encoders to measure position and velocity.  
+&nbsp;&nbsp;&nbsp;&nbsp;[encoder.py](./encoder.py) – Handles communication with the wheel encoders to measure position and velocity.  
 
-&nbsp;&nbsp;&nbsp;&nbsp;motor.py – Controls the Pololu motors for precise actuation.  
+&nbsp;&nbsp;&nbsp;&nbsp;[motor.py](./motor.py) – Controls the Pololu motors for precise actuation.  
 
-&nbsp;&nbsp;&nbsp;&nbsp;imu.py – Interfaces with the inertial measurement unit (IMU) for orientation and motion sensing.  
+&nbsp;&nbsp;&nbsp;&nbsp;[imu.py](./imu.py) – Interfaces with the inertial measurement unit (IMU) for orientation and motion sensing.  
 
-&nbsp;&nbsp;&nbsp;&nbsp;line.py – Processes input from the line sensors to detect track boundaries. 
+&nbsp;&nbsp;&nbsp;&nbsp;[line.py](./line.py) – Processes input from the line sensors to detect track boundaries. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;pid.py – Implements a PID controller for motor speed regulation.
+&nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py)– Implements a PID controller for motor speed regulation.
   
 Task scheduling and shared variable management are implemented using cotask.py and task_share.py. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
