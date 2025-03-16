@@ -28,7 +28,7 @@ https://youtube.com/shorts/zJc4XDnnLkc
 
 The repository contains the main program file and all necessary hardware driver modules. main.py is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing:
 
-&nbsp;&nbsp;&nbsp;&nbsp;encoder.py – Handles communication with the wheel encoders to measure position and velocity.  
+&nbsp;&nbsp;&nbsp;&nbsp;[View encoder.py](./encoder.py) – Handles communication with the wheel encoders to measure position and velocity.  
 
 &nbsp;&nbsp;&nbsp;&nbsp;motor.py – Controls the Pololu motors for precise actuation.  
 
