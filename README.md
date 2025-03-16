@@ -32,8 +32,6 @@ The system was controlled using an STM32 Nucleo-L476RG development board, which 
   Click Thumbnail above to view demonstration
 </p>
 
-[Watch the YouTube video](https://www.youtube.com/shorts/zJc4XDnnLkc)
-
 ## Hardware
 - [Back to top](#Table-of-Contents)
 - [Romi Chassis and Components](#romi-chassis-and-components)
