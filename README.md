@@ -21,7 +21,7 @@ The system was controlled using an STM32 Nucleo-L476RG development board, which 
 </p>
 
 <p align="center">
-  <img width="3024" alt="IMG_5718" src="https://github.com/user-attachments/assets/c376aa85-b766-441c-93ef-0afb0c2265a2" />
+  <img width="600" alt="IMG_5718" src="https://github.com/user-attachments/assets/c376aa85-b766-441c-93ef-0afb0c2265a2" />
 </p>
 <p align="center">
   Figure 1. Course Layout
