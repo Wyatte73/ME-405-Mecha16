@@ -4,7 +4,7 @@
 ## Table of Contents
 - [Project Overview](#projectoverview)
 - [Hardware](#hardware)
-- [Sensors](#sensors)
+- [Software](#software)
 
 ## Project Overview
 - [Back to top](#Table-of-Contents)
@@ -20,14 +20,38 @@ The system was controlled using an STM32 Nucleo-L476RG development board, which 
 
 https://youtube.com/shorts/zJc4XDnnLkc
 
+
+
+
 ## Hardware
 - [Back to top](#Table-of-Contents)
+- [Microcontroller](#microcontroller)
+- [Sensors](#sensors)
+- [Additional Components](#additional-components)
+
+### Microcontroller
+- [Back to top](#Table-of-Contents)
+The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
+
 
 ### Sensors
 - [Back to top](#Table-of-Contents)
+The three main sensors used were an IMU, a line sensor, and bump sensors. The IMU was used to determine the heading of ROMI. The IMU has an accelerometer, gyroscope, and magnetometer, however, only the accelerometer and gyroscope were used during the final term project. This is because Romi was calibrated at the start of the course to find a local “north” direction that was used as reference for any other direction. Figure ??? shows the IMU. The line sensor is an infrared sensor array with 15 sensors having a pitch of 4 mm. Due to the lack of ADC pins on the nucleo board, only 10 of the sensors were used. The sensors produce an analog output with the greater the output value, the more reflective the surface is. For the track, the black lines produced greater values which is how Romi was able to detect the lines. Figure ??? shows the line sensor that was used. The bump sensors were used to detect the wall towards the end of the track. They acted as a switch, either being off or on when the switch was depressed. Figure ??? shows the bump sensors that were used.
+
+
+### Additional Components
+- [Back to top](#Table-of-Contents)
+A HC-05 bluetooth module was also implemented to be able to use the REPL over bluetooth. This wasn’t needed but was a nice feature to have. This removed the usb wire going from Romi to the computer. The HC-05 had to be reconfigured to rename and give the module a new password. The baudrate was also increased to 460800. Figure ??? shows the HC-05 bluetooth module that was used.
+
+Standard mounting hardware was used and provided, but any way to mount the various sensors would suffice as long the sensors are mounted according to the manufacturer specifications.
 
 ## Software
 - [Back to top](#Table-of-Contents)
+
+
+
+
+
 
 ### Hardware Drivers
 
@@ -42,7 +66,12 @@ The repository contains the main program file and all necessary hardware driver 
 &nbsp;&nbsp;&nbsp;&nbsp;[line.py](./line.py) – Processes input from the line sensors to detect track boundaries. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py) – Implements a PID controller for motor speed regulation.
-  
+
+
+
+
+
+
 ### Task Diagram
 
 Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure _.A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
