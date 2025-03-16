@@ -76,10 +76,8 @@ Standard mounting hardware was used and provided, but any way to mount the vario
 
 ## Software
 - [Back to top](#Table-of-Contents)
-
-
-
-
+- [Hardware Drivers](#hardware-drivers)
+- [Task Diagram](#task-diagram)
 
 
 ### Hardware Drivers
@@ -95,11 +93,6 @@ The repository contains the main program file and all necessary hardware driver 
 &nbsp;&nbsp;&nbsp;&nbsp;[line.py](./line.py) – Processes input from the line sensors to detect track boundaries. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py) – Implements a PID controller for motor speed regulation.
-
-
-
-
-
 
 ### Task Diagram
 
@@ -142,5 +135,3 @@ Task scheduling and shared variable management are implemented using cotask.py a
 <p align="center">
   Figure _. Task Diagram
 </p>
-
-
