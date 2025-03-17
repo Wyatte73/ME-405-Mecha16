@@ -194,7 +194,7 @@ Figure 12. Task Diagram
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Figure 13. Finite State Machine
 
-To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure 13. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure 14, with notable adjustments for each section summarized in Table 1.
+To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The correspondng FSM can be seen in Figure 13. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure 14, with notable adjustments for each section summarized in Table 1.
 
 <p align="center">
   Table 1 . Velocity Modifications made in Each Section of FSM
@@ -230,7 +230,7 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 To account for potential discrepancies between the motors, we conducted a test to determine their individual gains. Each motor was driven at varying effort levels from 0% to 70%, up to the point where the wheels began to slip. The motor gain was then calculated by plotting the steady-state velocity against the applied motor voltage, as shown in Figure 15. A linear fit of the data provided critical insights into both the motor gain and the voltage required to overcome static friction. These values were incorporated into the control system to ensure Romi maintained a nearly perfect straight-line trajectory when no corrective input was applied.
 
 <p align="center">
-  <img width="726" alt="Screenshot 2025-03-16 233342" src="https://github.com/user-attachments/assets/aa597ff3-7d3e-46fa-a126-32525fe1e049" />
+  <img width="726" alt="Screenshot 2025-03-16 233822" src="https://github.com/user-attachments/assets/73aa3e73-1dc1-47dd-b391-acd2c845e04f" />
 </p>
 <p align="center">
   Figure 15. Motor Gain
