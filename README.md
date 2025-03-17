@@ -230,7 +230,7 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 To account for potential discrepancies between the motors, we conducted a test to determine their individual gains. Each motor was driven at varying effort levels from 0% to 70%, up to the point where the wheels began to slip. The motor gain was then calculated by plotting the steady-state velocity against the applied motor voltage, as shown in Figure 15. A linear fit of the data provided critical insights into both the motor gain and the voltage required to overcome static friction. These values were incorporated into the control system to ensure Romi maintained a nearly perfect straight-line trajectory when no corrective input was applied.
 
 <p align="center">
-  <img width="726" alt="Screenshot 2025-02-10 at 9 40 26 PM" src="https://github.com/user-attachments/assets/c75340e4-d59a-4e73-a43b-407469cb99b1" />
+  <img width="726" alt="Screenshot 2025-03-16 233342" src="https://github.com/user-attachments/assets/aa597ff3-7d3e-46fa-a126-32525fe1e049" />
 </p>
 <p align="center">
   Figure 15. Motor Gain
