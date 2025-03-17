@@ -9,6 +9,7 @@
   - [Additional Components](#additional-components)
   - [Wiring Diagram](#wiring-diagram)
 - [Software](#software)
+  - [Source Code](#source-code)
   - [Hardware Drivers](#hardware-drivers)
   - [Task Diagram and FSM](#task-diagram-and-fsm)
   - [Gain Detirmination](#gain-detirmination)
@@ -116,18 +117,21 @@ Standard mounting hardware was used and provided, but any way to mount the vario
 
 ### Source Code
 
-[main.py](./main.py)
-[encoder.py](./encoder.py)
-[motor.py](./motor.py)
-[imu.py](./imu.py)
-[line.py](./line.py)
-[pid.py](./pid.py)
+Main Code: [main.py](./main.py)
+Encoder Class: [encoder.py](./encoder.py)
+Motor Class: [motor.py](./motor.py)
+IMU Class: [imu.py](./imu.py)
+Line Class: [line.py](./line.py)
+PID Class: [pid.py](./pid.py)
+Cotask: [cotask.py](./cotask.py)
+Task Share: [task_share.py](./task_share.py)
+Bluetooth Configurator: [Bluetooth_Configurator](./Bluetooth_Configurator)
 
 
 ### Hardware Drivers
 [Back to top](#Table-of-Contents)
 
-The repository contains the main program file and all necessary hardware driver modules. [main.py](./main.py) is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing. Further detail is available within each respetive file:
+The repository contains the main program file and all necessary hardware driver modules. [main.py](./main.py) is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing. Further detail is available within each respective file:
 
 &nbsp;&nbsp;&nbsp;&nbsp;[encoder.py](./encoder.py) – Handles communication with the wheel encoders to measure position and velocity.  
 
