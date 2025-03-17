@@ -3,13 +3,20 @@
 
 ## Table of Contents
 - [Project Overview](#projectoverview)
-  - [Project Overview](#projectoverview)
 - [Hardware](#hardware)
+  - [Romi Chassis and Components](#romi-chassis-and-components)
+  - [Microcontroller](#microcontroller)
+  - [Sensors](#sensors)
+  - [Additional Components](#additional-components)
+  - [Wiring Diagram](#wiring-diagram)
 - [Software](#software)
+  - [Hardware Drivers](#hardware-drivers)
+  - [Task Diagram and FSM](#task-diagram-and-fsm)
+  - [Gain Detirmination](#gain-detirmination)
 - [Getting Started](#getting-started)
 
 ## Project Overview
-- [Back to top](#Table-of-Contents)
+[Back to top](#Table-of-Contents)
 
 This repository contains the ME-405 term project by Ethan Gray and Wyatt Eberhart. The objective of this project was to develop and implement a control system for a differential-drive robot, Romi, using MicroPython. Romi was programmed to autonomously navigate a predefined course (depicted in Figure 1) by utilizing three primary sensors: an inertial measurement unit (IMU), line sensors, and bump sensors. These sensors were integrated with the Romi chassis kit and combined with Pololu motors and a Pololu power distribution board. Figure 2 shows the final build of Romi.
 
@@ -30,14 +37,7 @@ Figure 2. Final Build of Romi
 </p>
 
 ## Hardware
-- [Back to top](#Table-of-Contents)
-- [Romi Chassis and Components](#romi-chassis-and-components)
-- [Microcontroller](#microcontroller)
-- [Sensors](#sensors)
-- [Additional Components](#additional-components)
-- [Wiring Diagram](#wiring-diagram)
-
-
+[Back to top](#Table-of-Contents)
 
 ### Romi Chassis and Components
 The main part of Romi from Pololu has the motors, encoders, power distribution board, and the chassis. The motors are connected to a gearbox with a 120:1 ratio. The encoders have a resolution of 12 ticks per revolution giving 1440 encoder ticks per revolution of the wheel. Romi takes 6 AA batteries to function properly which is handled through the power distribution board. The power to the motor is connected directly to the power distribution board and are controlled through the power distribution board.
@@ -57,7 +57,7 @@ Figure 5. Romi Chassis
 
 
 ### Microcontroller
-[Back to Hardware](#hardware)
+[Back to top](#Table-of-Contents)
 
 The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
 
@@ -69,7 +69,7 @@ The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided
 </p>
 
 ### Sensors
-[Back to Hardware](#hardware)
+[Back to top](#Table-of-Contents)
 
 The three main sensors used were an IMU, a line sensor, and bump sensors. The IMU was used to determine the heading of ROMI. The IMU has an accelerometer, gyroscope, and magnetometer, however, only the accelerometer and gyroscope were used during the final term project. This is because Romi was calibrated at the start of the course to find a local “north” direction that was used as a reference for any other direction. Figure ??? shows the IMU. The line sensor is an infrared sensor array with 15 sensors having a pitch of 4 mm. Due to the lack of ADC pins on the nucleo board, only 10 of the sensors were used. The sensors produce an analog output with the greater the output value, the more reflective the surface is. For the track, the black lines produced greater values which is how Romi was able to detect the lines. Figure ??? shows the line sensor that was used. The bump sensors were used to detect the wall towards the end of the track. They acted as a switch, either being off or on when the switch was depressed. Figure ??? shows the bump sensors that were used.
 
@@ -87,7 +87,7 @@ Figure 9. Romi Bump Sensor
 
 
 ### Additional Components
-[Back to Hardware](#hardware)
+[Back to top](#Table-of-Contents)
 
 A HC-05 bluetooth module was also implemented to be able to use the REPL over bluetooth. This wasn’t needed but was a nice feature to have. This removed the usb wire going from Romi to the computer. The HC-05 had to be reconfigured to rename and give the module a new password. The baudrate was also increased to 460800. Figure ??? shows the HC-05 bluetooth module that was used.
 
@@ -101,7 +101,7 @@ A HC-05 bluetooth module was also implemented to be able to use the REPL over bl
 Standard mounting hardware was used and provided, but any way to mount the various sensors would suffice as long the sensors are mounted according to the manufacturer's specifications.
 
 ### Wiring Diagram
-[Back to Hardware](#hardware)
+[Back to top](#Table-of-Contents)
 
 <p align="center">
   <img width="500" alt="[Screenshot 2025-03-16 153800" src="https://github.com/user-attachments/assets/4b9bbbcd-4be2-4f62-b9b7-f1827ae09b97" />
@@ -111,11 +111,7 @@ Standard mounting hardware was used and provided, but any way to mount the vario
 </p>
 
 ## Software
-- [Back to top](#Table-of-Contents)
-- [Hardware Drivers](#hardware-drivers)
-- [Task Diagram and FSM](#task-diagram-and-fsm)
-- [Gain Detirmination](#gain-detirmination)
-
+[Back to top](#Table-of-Contents)
 
 ### Hardware Drivers
 
@@ -132,7 +128,7 @@ The repository contains the main program file and all necessary hardware driver 
 &nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py) – Implements a PID controller for motor speed regulation.
 
 ### Task Diagram and FSM
-[Back to Software](#software)
+[Back to top](#Table-of-Contents)
 
 Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure _. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
@@ -205,7 +201,7 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 </p>
 
 ### Gain Detirmination
-[Back to Software](#software)
+[Back to top](#Table-of-Contents)
 
 To account for potential discrepancies between the motors, we conducted a test to determine their individual gains. Each motor was driven at varying effort levels from 0% to 70%, up to the point where the wheels began to slip. The motor gain was then calculated by plotting the steady-state velocity against the applied motor voltage, as shown in Figure _. A linear fit of the data provided critical insights into both the motor gain and the voltage required to overcome static friction. These values were incorporated into the control system to ensure Romi maintained a nearly perfect straight-line trajectory when no corrective input was applied.
 
@@ -214,7 +210,7 @@ To account for potential discrepancies between the motors, we conducted a test t
 </p>
 
 ## Getting Started
-- [Back to top](#Table-of-Contents)
+[Back to top](#Table-of-Contents)
   
 To use the provided code, I would start by building Romi and adding the sensors you want to use. Follow the specific wiring as displayed in the wiring diagram for the code to work properly. For full functionality I recommend having the IMU, line sensor, bump sensors, and the bluetooth module. The instructions that follow assume that a computer with windows will be used. Power on Romi by hitting the power button. Use a usb-A to mini usb to connect the shoe of brian to the computer. Determine the serial port being used through the device manager. Open up PUTTY and configure the correct serial port with a baudrate of 115200. After this save all the .py files above onto PYBFLASH. The green LED will be on when a file is being saved. Make sure that the LED turns off before saving the next file. Once all the files are saved, pressing ctrl+c then ctrl+d will run main. 
 
