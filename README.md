@@ -103,6 +103,7 @@ Standard mounting hardware was used and provided, but any way to mount the vario
 - [Back to top](#Table-of-Contents)
 - [Hardware Drivers](#hardware-drivers)
 - [Task Diagram and FSM](#task-diagram-and-fsm)
+- [Gain Detirmination](#gain-detirmination)
 
 
 ### Hardware Drivers
@@ -187,4 +188,5 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
   Figure ???. Cource Layout with Denoted Sections
 </p>
 
+### Gain Detirmination
 
