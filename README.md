@@ -40,6 +40,8 @@ Figure 2. Final Build of Romi
 [Back to top](#Table-of-Contents)
 
 ### Romi Chassis and Components
+[Back to top](#Table-of-Contents)
+
 The main part of Romi from Pololu has the motors, encoders, power distribution board, and the chassis. The motors are connected to a gearbox with a 120:1 ratio. The encoders have a resolution of 12 ticks per revolution giving 1440 encoder ticks per revolution of the wheel. Romi takes 6 AA batteries to function properly which is handled through the power distribution board. The power to the motor is connected directly to the power distribution board and are controlled through the power distribution board.
 
 
