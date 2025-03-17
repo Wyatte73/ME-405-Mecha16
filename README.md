@@ -216,7 +216,7 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
   Figure 14. Course Layout with Denoted Sections
 </p>
 
-### Gain Detirmination
+### Gain Determination
 [Back to top](#Table-of-Contents)
 
 To account for potential discrepancies between the motors, we conducted a test to determine their individual gains. Each motor was driven at varying effort levels from 0% to 70%, up to the point where the wheels began to slip. The motor gain was then calculated by plotting the steady-state velocity against the applied motor voltage, as shown in Figure 15. A linear fit of the data provided critical insights into both the motor gain and the voltage required to overcome static friction. These values were incorporated into the control system to ensure Romi maintained a nearly perfect straight-line trajectory when no corrective input was applied.
