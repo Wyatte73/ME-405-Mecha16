@@ -44,9 +44,9 @@ The system was controlled using an STM32 Nucleo-L476RG development board, which 
 The main part of Romi from Pololu has the motors, encoders, power distribution board, and the chassis. The motors are connected to a gearbox with a 120:1 ratio. The encoders have a resolution of 12 ticks per revolution giving 1440 encoder ticks per revolution of the wheel. Romi takes 6 AA batteries to function properly which is handled through the power distribution board. The power to the motor is connected directly to the power distribution board and are controlled through the power distribution board.
 
 
-  <img height="280" alt="[Screenshot 2025-03-16 160153" src="https://github.com/user-attachments/assets/8af7760e-e74b-4c70-9e59-c029caaecfe0" />
-  <img height="280" alt="[Screenshot 2025-03-16 160208" src="https://github.com/user-attachments/assets/0ec7f4de-23a0-4646-b721-331e287d3c96" />
-  <img height="280" alt="[Screenshot 2025-03-16 160101" src="https://github.com/user-attachments/assets/f1b07fd9-ac19-4c26-b4b9-96e414122c30" />
+  <img height="240" alt="[Screenshot 2025-03-16 160153" src="https://github.com/user-attachments/assets/8af7760e-e74b-4c70-9e59-c029caaecfe0" />
+  <img height="240" alt="[Screenshot 2025-03-16 160208" src="https://github.com/user-attachments/assets/0ec7f4de-23a0-4646-b721-331e287d3c96" />
+  <img height="240" alt="[Screenshot 2025-03-16 160101" src="https://github.com/user-attachments/assets/f1b07fd9-ac19-4c26-b4b9-96e414122c30" />
 
 Figure ???. Romi Chassis
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
