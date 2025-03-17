@@ -41,7 +41,6 @@ Figure 2. Final Build of Romi
 [Back to top](#Table-of-Contents)
 
 ### Romi Chassis and Components
-[Back to top](#Table-of-Contents)
 
 The core components of Romi, sourced from Pololu, include the motors (Figure 5), encoders (Figure 5), power distribution board (Figure 3), and chassis (Figure 4). The motors are coupled with a 120:1 gearbox, providing high torque and precise control. Each encoder has a resolution of 12 ticks per motor shaft revolution, resulting in 1440 encoder ticks per full wheel rotation. Romi is powered by six AA batteries, which are regulated through the power distribution board. The motors receive power directly from the distribution board and are controlled through its integrated circuitry.
 
