@@ -43,26 +43,26 @@ Figure 2. Final Build of Romi
 ### Romi Chassis and Components
 [Back to top](#Table-of-Contents)
 
-The main part of Romi from Pololu has the motors, encoders, power distribution board, and the chassis. The motors are connected to a gearbox with a 120:1 ratio. The encoders have a resolution of 12 ticks per revolution giving 1440 encoder ticks per revolution of the wheel. Romi takes 6 AA batteries to function properly which is handled through the power distribution board. The power to the motor is connected directly to the power distribution board and are controlled through the power distribution board.
+The core components of Romi, sourced from Pololu, include the motors (Figure 5), encoders (Figure 5), power distribution board (Figure 3), and chassis (Figure 4). The motors are coupled with a 120:1 gearbox, providing high torque and precise control. Each encoder has a resolution of 12 ticks per motor shaft revolution, resulting in 1440 encoder ticks per full wheel rotation. Romi is powered by six AA batteries, which are regulated through the power distribution board. The motors receive power directly from the distribution board and are controlled through its integrated circuitry.
 
 
   <img height="240" alt="[Screenshot 2025-03-16 160153" src="https://github.com/user-attachments/assets/8af7760e-e74b-4c70-9e59-c029caaecfe0" />
   <img height="240" alt="[Screenshot 2025-03-16 160208" src="https://github.com/user-attachments/assets/0ec7f4de-23a0-4646-b721-331e287d3c96" />
   <img height="240" alt="[Screenshot 2025-03-16 160101" src="https://github.com/user-attachments/assets/f1b07fd9-ac19-4c26-b4b9-96e414122c30" />
 
-&nbsp;
+&nbsp;&nbsp;
 Figure 3. Power Distribution Board
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure 4. Motor and Encoder Pair
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure 5. Romi Chassis
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 4. Romi Chassis
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 5. Motor and Encoder Pair
 
 
 
 ### Microcontroller
 [Back to top](#Table-of-Contents)
 
-The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
+The STM32 Nucleo-L476RG microcontroller served as the central processing unit for Romi and was provided by the professor. Acting as Romi’s "brain," it processed sensor data, interpreted the readings, and executed control algorithms to drive the motors. This allowed Romi to navigate the course effectively based on real-time feedback. Figure 6 provides a visual representation of the Nucleo board.
 
 <p align="center">
   <img width="300" alt="[Screenshot 2025-03-16 142309" src="https://github.com/user-attachments/assets/ad4143ad-f2fc-4ce5-9881-01eb9068ed2d" />
@@ -74,8 +74,7 @@ The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided
 ### Sensors
 [Back to top](#Table-of-Contents)
 
-The three main sensors used were an IMU, a line sensor, and bump sensors. The IMU was used to determine the heading of ROMI. The IMU has an accelerometer, gyroscope, and magnetometer, however, only the accelerometer and gyroscope were used during the final term project. This is because Romi was calibrated at the start of the course to find a local “north” direction that was used as a reference for any other direction. Figure ??? shows the IMU. The line sensor is an infrared sensor array with 15 sensors having a pitch of 4 mm. Due to the lack of ADC pins on the nucleo board, only 10 of the sensors were used. The sensors produce an analog output with the greater the output value, the less reflective the surface is. For the track, the black lines produced greater values which is how Romi was able to detect the lines. Figure ??? shows the line sensor that was used. The bump sensors were used to detect the wall towards the end of the track. They acted as a switch, either being off or on when the switch was depressed. Figure ??? shows the bump sensors that were used.
-
+Romi utilized three primary sensors: an IMU, a line sensor, and bump sensors. The IMU, which includes an accelerometer, gyroscope, and magnetometer, was used to determine Romi’s heading; however, only the accelerometer and gyroscope were used, as Romi was calibrated at the start of the course to establish a local “north” reference, making the magnetometer unnecessary. The line sensor is a 15-element infrared (IR) sensor array with a 4 mm pitch, though only 10 sensors were used due to the limited number of ADC pins on the Nucleo-L476RG. These sensors produce analog outputs, where higher values correspond to lower reflectivity, allowing Romi to detect the black track lines, which reflected less light. The bump sensors, acting as binary switches, were used to detect the wall near the end of the track, triggering when pressed upon impact. Figures 7-9 illustrate each of these sensors.
 
 <img height="220" alt="[Screenshot 2025-03-16 132044" src="https://github.com/user-attachments/assets/75282655-6f3c-4acc-bebd-a26dc5f86d2b" />
 <img height="220" alt="[Screenshot 2025-03-16 124428" src="https://github.com/user-attachments/assets/87a4b780-bd74-4869-acef-98eb18fece45" />
@@ -92,7 +91,7 @@ Figure 9. Romi Bump Sensor
 ### Additional Components
 [Back to top](#Table-of-Contents)
 
-A HC-05 bluetooth module was also implemented to be able to use the REPL over bluetooth. This wasn’t needed but was a nice feature to have. This removed the usb wire going from Romi to the computer. The HC-05 had to be reconfigured to rename and give the module a new password. The baudrate was also increased to 460800. Figure ??? shows the HC-05 bluetooth module that was used.
+An HC-05 Bluetooth module was integrated into the system to enable wireless REPL access over Bluetooth. While not essential, this feature provided convenience by eliminating the need for a USB connection between Romi and the computer. To implement this, the HC-05 module was reconfigured with a new name and password, and its baud rate was increased to 460800 for improved communication speed. The HC-05 Bluetooth module used in the project is shown in Figure 10.
 
 <p align="center">
   <img width="350" alt="[Screenshot 2025-03-16 132414" src="https://github.com/user-attachments/assets/7a990adc-fc7c-4450-bb18-58cdf33d645e" />
@@ -133,7 +132,7 @@ The repository contains the main program file and all necessary hardware driver 
 ### Task Diagram and FSM
 [Back to top](#Table-of-Contents)
 
-Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure _. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
+Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure 12. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
 &nbsp;&nbsp;&nbsp;&nbsp;Motor Control (Priority: 2, Period: 10ms):
 
@@ -168,12 +167,12 @@ Task scheduling and shared variable management are implemented using cotask.py a
 <img height="550" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
 <img height="550" alt="Screenshot 2025-03-16 at 9 21 26 PM" src="https://github.com/user-attachments/assets/4e732dca-c163-4099-926c-309972505301" />
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure _. Task Diagram
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure _. Finite State Machine
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 12. Task Diagram
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 13. Finite State Machine
 
-To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure _. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure _, with notable adjustments for each section summarized in Table _.
+To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure 13. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure 14, with notable adjustments for each section summarized in Table 1.
 
 <div align="center">
 
@@ -193,38 +192,38 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 </div>
 
 <p align="center">
-  Table _ . Velocity Modifications made in Each Section of FSM
+  Table 1 . Velocity Modifications made in Each Section of FSM
 </p>
 
 <p align="center">
   <img height="300" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
 </p>
 <p align="center">
-  Figure ???. Course Layout with Denoted Sections
+  Figure 14. Course Layout with Denoted Sections
 </p>
 
 ### Gain Detirmination
 [Back to top](#Table-of-Contents)
 
-To account for potential discrepancies between the motors, we conducted a test to determine their individual gains. Each motor was driven at varying effort levels from 0% to 70%, up to the point where the wheels began to slip. The motor gain was then calculated by plotting the steady-state velocity against the applied motor voltage, as shown in Figure _. A linear fit of the data provided critical insights into both the motor gain and the voltage required to overcome static friction. These values were incorporated into the control system to ensure Romi maintained a nearly perfect straight-line trajectory when no corrective input was applied.
+To account for potential discrepancies between the motors, we conducted a test to determine their individual gains. Each motor was driven at varying effort levels from 0% to 70%, up to the point where the wheels began to slip. The motor gain was then calculated by plotting the steady-state velocity against the applied motor voltage, as shown in Figure 15. A linear fit of the data provided critical insights into both the motor gain and the voltage required to overcome static friction. These values were incorporated into the control system to ensure Romi maintained a nearly perfect straight-line trajectory when no corrective input was applied.
 
 <p align="center">
   <img width="726" alt="Screenshot 2025-02-10 at 9 40 26 PM" src="https://github.com/user-attachments/assets/c75340e4-d59a-4e73-a43b-407469cb99b1" />
 </p>
 <p align="center">
-  Figure ???. Control Loop by Charlie Refvem
+  Figure 15. Motor Gain
 </p>
 
 ## Control Theory
 [Back to top](#Table-of-Contents)
 
-A control loop with feedback was used to control the motor actuation based on specific sensor values. Romi was given an initial longitudinal velocity and yaw rate, being the setpoints. The longitudinal velocity was to a value used to control the speed of Romi and the yaw rate was set to zero to make Romi drive straight. The yaw rate error was used to get Romi to turn. The control loop shown in Figure ??? was implemented in the code. Figure ??? was created by Charlie Refvem.
+A feedback control loop was implemented to regulate motor actuation based on real-time sensor data. Romi was assigned an initial longitudinal velocity and yaw rate as setpoints, where the longitudinal velocity controlled Romi’s speed, and the yaw rate was initially set to zero to ensure straight-line motion. Any deviation in yaw rate introduced an error signal, which was used to generate corrective adjustments for turning. The control loop, illustrated in Figure 16, was incorporated into the code to maintain stability and accuracy. Figure 16 was created by Charlie Refvem.
 
 <p align="center">
   <img height="300" alt="Screenshot 2025-03-16 214623" src="https://github.com/user-attachments/assets/303c63f9-43a1-4934-844f-54f5d9f3dde0" />
 </p>
 <p align="center">
-  Figure ???. Control Loop by Charlie Refvem
+  Figure 16. Control Loop by Charlie Refvem
 </p>
 
 ## Getting Started
