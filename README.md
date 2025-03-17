@@ -181,3 +181,4 @@ Figure _. Finite State Machine
 | 5.5   | IMU | None |
 
 
+<img height="500" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
