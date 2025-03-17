@@ -70,10 +70,11 @@ The three main sensors used were an IMU, a line sensor, and bump sensors. The IM
 <img height="220" alt="[Screenshot 2025-03-16 124428" src="https://github.com/user-attachments/assets/87a4b780-bd74-4869-acef-98eb18fece45" />
 <img height="220" alt="[Screenshot 2025-03-16 132123" src="https://github.com/user-attachments/assets/de5c8547-8330-4591-9034-422a7068c77a" />
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Figure ???. BNO055 IMU
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Figure ???. QTR-HD-15A IR Sensor Array
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
 Figure ???. Romi Bump Sensor
 
 
