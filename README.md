@@ -105,6 +105,8 @@ Standard mounting hardware was used and provided, but other ways to mount the va
 ### Wiring Diagram
 [Back to top](#Table-of-Contents)
 
+See Figure 11 below for the wiring diagram.
+
 <p align="center">
   <img width="500" alt="[Screenshot 2025-03-16 153800" src="https://github.com/user-attachments/assets/4b9bbbcd-4be2-4f62-b9b7-f1827ae09b97" />
 </p>
