@@ -100,7 +100,7 @@ An HC-05 Bluetooth module was integrated into the system to enable wireless REPL
   Figure 10. HC-05 Bluetooth Module
 </p>
 
-Standard mounting hardware was used and provided, but any way to mount the various sensors would suffice as long the sensors are mounted according to the manufacturer's specifications.
+Standard mounting hardware was used and provided, but other ways to mount the various sensors would suffice as long the sensors are mounted according to the manufacturer's specifications.
 
 ### Wiring Diagram
 [Back to top](#Table-of-Contents)
