@@ -178,7 +178,7 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 |-----------|-----------|-----------|
 | 1    | Line  | velocity = 50% if turn detected  | 
 | 2    | IMU  | velocity = 70%  |
-| 3    | Line  | velocity = 85%, 75% if harsh turn |
+| 3    | Line  | velocity = 85%, 70% if harsh turn |
 | 4    | Line  | None |
 | 5.0  | IMU  | velocity = 150%  |
 | 5.1  | IMU  | velocity = 70%   |
