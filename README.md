@@ -5,6 +5,7 @@
 - [Project Overview](#projectoverview)
 - [Hardware](#hardware)
 - [Software](#software)
+- [Getting Started](#getting-started)
 
 ## Project Overview
 - [Back to top](#Table-of-Contents)
@@ -189,4 +190,12 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 </p>
 
 ### Gain Detirmination
+
+## Getting Started
+- [Back to top](#Table-of-Contents)
+  
+To use the provided code, I would start by building Romi and adding the sensors you want to use. Follow the specific wiring as displayed in the wiring diagram for the code to work properly. For full functionality I recommend having the IMU, line sensor, bump sensors, and the bluetooth module. The instructions that follow assume that a computer with windows will be used. Power on Romi by hitting the power button. Use a usb-A to mini usb to connect the shoe of brian to the computer. Determine the serial port being used through the device manager. Open up PUTTY and configure the correct serial port with a baudrate of 115200. After this save all the .py files above onto PYBFLASH. The green LED will be on when a file is being saved. Make sure that the LED turns off before saving the next file. Once all the files are saved, pressing ctrl+c then ctrl+d will run main. 
+
+To get bluetooth working, save the file above named Bluetooth_Configurator as main.py. Power off Romi. While holding the button on the HC-05 bluetooth module, power Romi on. The bluetooth module should start slowly blinking. In the PUTTY window press ctrl+c then ctrl+d. The bluetooth module should now be configured. Determine which serial port the bluetooth module is activating and initalize a PUTTY window with the correct serial port and have the baudrate at 460800. Bluetooth should now be working.
+
 
