@@ -173,8 +173,12 @@ Figure 13. Finite State Machine
 
 To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure 13. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure 14, with notable adjustments for each section summarized in Table 1.
 
-<div align="center">
+<p align="center">
+  Table 1 . Velocity Modifications made in Each Section of FSM
+</p>
 
+<div align="center">
+  
 | Section  | Sensor Used | Modifiers  |
 |-----------|-----------|-----------|
 | 1    | Line  | velocity = 50% if turn detected  | 
@@ -189,10 +193,6 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 | 5.5  | IMU  | None |
 
 </div>
-
-<p align="center">
-  Table 1 . Velocity Modifications made in Each Section of FSM
-</p>
 
 <p align="center">
   <img height="300" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
