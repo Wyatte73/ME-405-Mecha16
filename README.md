@@ -102,7 +102,7 @@ Standard mounting hardware was used and provided, but any way to mount the vario
 ## Software
 - [Back to top](#Table-of-Contents)
 - [Hardware Drivers](#hardware-drivers)
-- [Task Diagram](#task-diagram)
+- [Task Diagram and FSM](#task-diagram-and-fsm)
 
 
 ### Hardware Drivers
@@ -153,18 +153,15 @@ Task scheduling and shared variable management are implemented using cotask.py a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Solely responsible for detecting wall contact and setting a bump flag share high when a wall is detected.
 
-To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure _. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure _, with notable adjustments for each section summarized in Table _.
-
-
-<img height="500" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
-<img height="500" alt="Screenshot 2025-03-16 at 9 21 26 PM" src="https://github.com/user-attachments/assets/4e732dca-c163-4099-926c-309972505301" />
+<img height="550" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
+<img height="550" alt="Screenshot 2025-03-16 at 9 21 26 PM" src="https://github.com/user-attachments/assets/4e732dca-c163-4099-926c-309972505301" />
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Figure _. Task Diagram
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Figure _. Finite State Machine
 
-
+To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure _. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure _, with notable adjustments for each section summarized in Table _.
 
 
 | Section  | Sensor Used | Modifiers  |
@@ -180,5 +177,14 @@ Figure _. Finite State Machine
 | 5.4    | IMU | velocity = 120%   |
 | 5.5   | IMU | None |
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table _ . Velocity Modifications made in Each Section of FSM
 
-<img height="500" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
+
+<p align="center">
+  <img height="300" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
+</p>
+<p align="center">
+  Figure ???. Cource Layout with Denoted Sections
+</p>
+
+
