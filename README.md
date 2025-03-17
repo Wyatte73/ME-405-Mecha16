@@ -43,11 +43,12 @@ The main part of Romi from Pololu has the motors, encoders, power distribution b
   <img height="240" alt="[Screenshot 2025-03-16 160208" src="https://github.com/user-attachments/assets/0ec7f4de-23a0-4646-b721-331e287d3c96" />
   <img height="240" alt="[Screenshot 2025-03-16 160101" src="https://github.com/user-attachments/assets/f1b07fd9-ac19-4c26-b4b9-96e414122c30" />
 
-Figure ???. Romi Chassis
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure ???. Romi Motor and Encoder Pair
+&nbsp;
+Figure ???. Power Distribution Board
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure ???. Motor and Encoder Pair
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure ???. Romi Power Distribution Board
+Figure ???. Romi Chassis
 
 
 
@@ -55,7 +56,7 @@ Figure ???. Romi Power Distribution Board
 The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
 
 <p align="center">
-  <img width="350" alt="[Screenshot 2025-03-16 142309" src="https://github.com/user-attachments/assets/ad4143ad-f2fc-4ce5-9881-01eb9068ed2d" />
+  <img width="300" alt="[Screenshot 2025-03-16 142309" src="https://github.com/user-attachments/assets/ad4143ad-f2fc-4ce5-9881-01eb9068ed2d" />
 </p>
 <p align="center">
   Figure ???. Nucleo L476RG
@@ -65,9 +66,9 @@ The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided
 The three main sensors used were an IMU, a line sensor, and bump sensors. The IMU was used to determine the heading of ROMI. The IMU has an accelerometer, gyroscope, and magnetometer, however, only the accelerometer and gyroscope were used during the final term project. This is because Romi was calibrated at the start of the course to find a local “north” direction that was used as a reference for any other direction. Figure ??? shows the IMU. The line sensor is an infrared sensor array with 15 sensors having a pitch of 4 mm. Due to the lack of ADC pins on the nucleo board, only 10 of the sensors were used. The sensors produce an analog output with the greater the output value, the more reflective the surface is. For the track, the black lines produced greater values which is how Romi was able to detect the lines. Figure ??? shows the line sensor that was used. The bump sensors were used to detect the wall towards the end of the track. They acted as a switch, either being off or on when the switch was depressed. Figure ??? shows the bump sensors that were used.
 
 
-<img height="260" alt="[Screenshot 2025-03-16 132044" src="https://github.com/user-attachments/assets/75282655-6f3c-4acc-bebd-a26dc5f86d2b" />
-<img height="260" alt="[Screenshot 2025-03-16 124428" src="https://github.com/user-attachments/assets/87a4b780-bd74-4869-acef-98eb18fece45" />
-<img height="260" alt="[Screenshot 2025-03-16 132123" src="https://github.com/user-attachments/assets/de5c8547-8330-4591-9034-422a7068c77a" />
+<img height="220" alt="[Screenshot 2025-03-16 132044" src="https://github.com/user-attachments/assets/75282655-6f3c-4acc-bebd-a26dc5f86d2b" />
+<img height="220" alt="[Screenshot 2025-03-16 124428" src="https://github.com/user-attachments/assets/87a4b780-bd74-4869-acef-98eb18fece45" />
+<img height="220" alt="[Screenshot 2025-03-16 132123" src="https://github.com/user-attachments/assets/de5c8547-8330-4591-9034-422a7068c77a" />
 
 Figure ???. BNO055 IMU
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
