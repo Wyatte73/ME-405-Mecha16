@@ -13,6 +13,7 @@
   - [Hardware Drivers](#hardware-drivers)
   - [Task Diagram and FSM](#task-diagram-and-fsm)
   - [Gain Detirmination](#gain-detirmination)
+- [Control Therory](#control-theory)
 - [Getting Started](#getting-started)
 
 ## Project Overview
@@ -73,7 +74,7 @@ The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided
 ### Sensors
 [Back to top](#Table-of-Contents)
 
-The three main sensors used were an IMU, a line sensor, and bump sensors. The IMU was used to determine the heading of ROMI. The IMU has an accelerometer, gyroscope, and magnetometer, however, only the accelerometer and gyroscope were used during the final term project. This is because Romi was calibrated at the start of the course to find a local “north” direction that was used as a reference for any other direction. Figure ??? shows the IMU. The line sensor is an infrared sensor array with 15 sensors having a pitch of 4 mm. Due to the lack of ADC pins on the nucleo board, only 10 of the sensors were used. The sensors produce an analog output with the greater the output value, the more reflective the surface is. For the track, the black lines produced greater values which is how Romi was able to detect the lines. Figure ??? shows the line sensor that was used. The bump sensors were used to detect the wall towards the end of the track. They acted as a switch, either being off or on when the switch was depressed. Figure ??? shows the bump sensors that were used.
+The three main sensors used were an IMU, a line sensor, and bump sensors. The IMU was used to determine the heading of ROMI. The IMU has an accelerometer, gyroscope, and magnetometer, however, only the accelerometer and gyroscope were used during the final term project. This is because Romi was calibrated at the start of the course to find a local “north” direction that was used as a reference for any other direction. Figure ??? shows the IMU. The line sensor is an infrared sensor array with 15 sensors having a pitch of 4 mm. Due to the lack of ADC pins on the nucleo board, only 10 of the sensors were used. The sensors produce an analog output with the greater the output value, the less reflective the surface is. For the track, the black lines produced greater values which is how Romi was able to detect the lines. Figure ??? shows the line sensor that was used. The bump sensors were used to detect the wall towards the end of the track. They acted as a switch, either being off or on when the switch was depressed. Figure ??? shows the bump sensors that were used.
 
 
 <img height="220" alt="[Screenshot 2025-03-16 132044" src="https://github.com/user-attachments/assets/75282655-6f3c-4acc-bebd-a26dc5f86d2b" />
@@ -199,7 +200,7 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
   <img height="300" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
 </p>
 <p align="center">
-  Figure ???. Cource Layout with Denoted Sections
+  Figure ???. Course Layout with Denoted Sections
 </p>
 
 ### Gain Detirmination
@@ -209,6 +210,21 @@ To account for potential discrepancies between the motors, we conducted a test t
 
 <p align="center">
   <img width="726" alt="Screenshot 2025-02-10 at 9 40 26 PM" src="https://github.com/user-attachments/assets/c75340e4-d59a-4e73-a43b-407469cb99b1" />
+</p>
+<p align="center">
+  Figure ???. Control Loop by Charlie Refvem
+</p>
+
+## Control Theory
+[Back to top](#Table-of-Contents)
+
+A control loop with feedback was used to control the motor actuation based on specific sensor values. Romi was given an initial longitudinal velocity and yaw rate, being the setpoints. The longitudinal velocity was to a value used to control the speed of Romi and the yaw rate was set to zero to make Romi drive straight. The yaw rate error was used to get Romi to turn. The control loop shown in Figure ??? was implemented in the code. Figure ??? was created by Charlie Refvem.
+
+<p align="center">
+  <img height="300" alt="Screenshot 2025-03-16 214623" src="https://github.com/user-attachments/assets/303c63f9-43a1-4934-844f-54f5d9f3dde0" />
+</p>
+<p align="center">
+  Figure ???. Control Loop by Charlie Refvem
 </p>
 
 ## Getting Started
