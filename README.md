@@ -1,5 +1,4 @@
 # ME-405-Mecha16 Term Project
-### Ethan Gray and Wyatt Eberhart
 
 ## Table of Contents
 - [Project Overview](#projectoverview)
