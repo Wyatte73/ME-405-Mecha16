@@ -119,9 +119,9 @@ The repository contains the main program file and all necessary hardware driver 
 
 &nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py) – Implements a PID controller for motor speed regulation.
 
-### Task Diagram
+### Task Diagram and FSM
 
-Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure _.A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
+Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure _. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
 &nbsp;&nbsp;&nbsp;&nbsp;Motor Control (Priority: 2, Period: 10ms):
 
@@ -153,10 +153,31 @@ Task scheduling and shared variable management are implemented using cotask.py a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Solely responsible for detecting wall contact and setting a bump flag share high when a wall is detected.
 
+To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure _. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure _, with notable adjustments for each section summarized in Table _.
 
-<p align="center">
-  <img width="445" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
-</p>
-<p align="center">
-  Figure _. Task Diagram
-</p>
+
+<img height="500" alt="Screenshot 2025-03-14 at 12 37 26 PM" src="https://github.com/user-attachments/assets/b93a4060-abe6-48d0-a5c1-742849eac1dc" />
+<img height="500" alt="Screenshot 2025-03-16 at 9 21 26 PM" src="https://github.com/user-attachments/assets/4e732dca-c163-4099-926c-309972505301" />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure _. Task Diagram
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure _. Finite State Machine
+
+
+
+
+| Section  | Sensor Used | Modifiers  |
+|-----------|-----------|-----------|
+| 1    | Line  | velocity = 50% if turn detected  | 
+| 2    | IMU  | velocity = 70%  |
+| 3    | Line  | velocity = 85%, 75% if harse turn |
+| 4    | Line  | None |
+| 5.0    | IMU  | velocity = 150%  |
+| 5.1   | IMU  | velocity = 70%   |
+| 5.2   | IMU  | velocity = 120%   |
+| 5.3    | IMU  | velocity = 120%   |
+| 5.4    | IMU | velocity = 120%   |
+| 5.5   | IMU | None |
+
+
