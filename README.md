@@ -131,7 +131,7 @@ The repository contains the main program file and all necessary hardware driver 
 ### Task Diagram and FSM
 [Back to top](#Table-of-Contents)
 
-Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure 12. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
+Task scheduling and shared variable management are implemented using [cotask.py](./cotask.py) and [task_share.py](./task_share.py). The task diagram can be seen below in Figure 12. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
 &nbsp;&nbsp;&nbsp;&nbsp;Motor Control (Priority: 2, Period: 10ms):
 
