@@ -3,7 +3,7 @@
 
 ## Table of Contents
 - [Project Overview](#projectoverview)
-- - [Project Overview](#projectoverview)
+  - [Project Overview](#projectoverview)
 - [Hardware](#hardware)
 - [Software](#software)
 - [Getting Started](#getting-started)
