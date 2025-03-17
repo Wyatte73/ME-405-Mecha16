@@ -36,6 +36,8 @@ Figure 2. Final Build of Romi
 - [Additional Components](#additional-components)
 - [Wiring Diagram](#wiring-diagram)
 
+
+
 ### Romi Chassis and Components
 The main part of Romi from Pololu has the motors, encoders, power distribution board, and the chassis. The motors are connected to a gearbox with a 120:1 ratio. The encoders have a resolution of 12 ticks per revolution giving 1440 encoder ticks per revolution of the wheel. Romi takes 6 AA batteries to function properly which is handled through the power distribution board. The power to the motor is connected directly to the power distribution board and are controlled through the power distribution board.
 
@@ -45,25 +47,29 @@ The main part of Romi from Pololu has the motors, encoders, power distribution b
   <img height="240" alt="[Screenshot 2025-03-16 160101" src="https://github.com/user-attachments/assets/f1b07fd9-ac19-4c26-b4b9-96e414122c30" />
 
 &nbsp;
-Figure ???. Power Distribution Board
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure ???. Motor and Encoder Pair
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure ???. Romi Chassis
+Figure 3. Power Distribution Board
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 4. Motor and Encoder Pair
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 5. Romi Chassis
 
 
 
 ### Microcontroller
+[Back to Hardware](#hardware)
+
 The microcontroller that was used was the STM32 Nucleo-L476RG. This was provided by the professor. This was the mind of Romi and was able to control Romi by obtaining the readings from the sensors. After interpreting the data, Romi was able to control the motors to traverse through the course.  Figure ??? shows the Nucleo Board.  
 
 <p align="center">
   <img width="300" alt="[Screenshot 2025-03-16 142309" src="https://github.com/user-attachments/assets/ad4143ad-f2fc-4ce5-9881-01eb9068ed2d" />
 </p>
 <p align="center">
-  Figure ???. Nucleo L476RG
+  Figure 6. Nucleo L476RG
 </p>
 
 ### Sensors
+[Back to Hardware](#hardware)
+
 The three main sensors used were an IMU, a line sensor, and bump sensors. The IMU was used to determine the heading of ROMI. The IMU has an accelerometer, gyroscope, and magnetometer, however, only the accelerometer and gyroscope were used during the final term project. This is because Romi was calibrated at the start of the course to find a local “north” direction that was used as a reference for any other direction. Figure ??? shows the IMU. The line sensor is an infrared sensor array with 15 sensors having a pitch of 4 mm. Due to the lack of ADC pins on the nucleo board, only 10 of the sensors were used. The sensors produce an analog output with the greater the output value, the more reflective the surface is. For the track, the black lines produced greater values which is how Romi was able to detect the lines. Figure ??? shows the line sensor that was used. The bump sensors were used to detect the wall towards the end of the track. They acted as a switch, either being off or on when the switch was depressed. Figure ??? shows the bump sensors that were used.
 
 
@@ -71,33 +77,36 @@ The three main sensors used were an IMU, a line sensor, and bump sensors. The IM
 <img height="220" alt="[Screenshot 2025-03-16 124428" src="https://github.com/user-attachments/assets/87a4b780-bd74-4869-acef-98eb18fece45" />
 <img height="220" alt="[Screenshot 2025-03-16 132123" src="https://github.com/user-attachments/assets/de5c8547-8330-4591-9034-422a7068c77a" />
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure ???. BNO055 IMU
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Figure ???. QTR-HD-15A IR Sensor Array
-&nbsp;
-Figure ???. Romi Bump Sensor
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 7. BNO055 IMU
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 8. QTR-HD-15A IR Sensor Array
+&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 9. Romi Bump Sensor
 
 
 ### Additional Components
+[Back to Hardware](#hardware)
+
 A HC-05 bluetooth module was also implemented to be able to use the REPL over bluetooth. This wasn’t needed but was a nice feature to have. This removed the usb wire going from Romi to the computer. The HC-05 had to be reconfigured to rename and give the module a new password. The baudrate was also increased to 460800. Figure ??? shows the HC-05 bluetooth module that was used.
 
 <p align="center">
   <img width="350" alt="[Screenshot 2025-03-16 132414" src="https://github.com/user-attachments/assets/7a990adc-fc7c-4450-bb18-58cdf33d645e" />
 </p>
 <p align="center">
-  Figure ???. HC-05 Bluetooth Module
+  Figure 10. HC-05 Bluetooth Module
 </p>
 
 Standard mounting hardware was used and provided, but any way to mount the various sensors would suffice as long the sensors are mounted according to the manufacturer's specifications.
 
 ### Wiring Diagram
+[Back to Hardware](#hardware)
 
 <p align="center">
   <img width="500" alt="[Screenshot 2025-03-16 153800" src="https://github.com/user-attachments/assets/4b9bbbcd-4be2-4f62-b9b7-f1827ae09b97" />
 </p>
 <p align="center">
-  Figure ???. Wiring Diagram
+  Figure 11. Wiring Diagram
 </p>
 
 ## Software
@@ -122,6 +131,7 @@ The repository contains the main program file and all necessary hardware driver 
 &nbsp;&nbsp;&nbsp;&nbsp;[pid.py](./pid.py) – Implements a PID controller for motor speed regulation.
 
 ### Task Diagram and FSM
+[Back to Software](#software)
 
 Task scheduling and shared variable management are implemented using cotask.py and task_share.py. The task diagram can be seen below in Figure _. A key limitation on task execution frequency is the resolution of the velocity measurements obtained from the encoders. Through testing, we determined that the maximum feasible task execution rate is approximately 100 Hz. Running all tasks at this frequency did not introduce any performance issues. The scheduler cycles through four tasks:
 
@@ -165,22 +175,26 @@ Figure _. Finite State Machine
 
 To optimize Romi’s performance, the track was divided into 10 sections, with seven IMU-driven segments dedicated to straight-line motion and three IR sensor-based segments for line following. The corespondng FSM can be seen in Figure _. Speed adjustments were implemented to enhance efficiency and maneuverability, allowing Romi to travel faster in open, straight sections such as the grid while slowing down in tighter turns to maintain control. This segmentation and adaptive speed control improved overall navigation accuracy and efficiency. A visual representation of the track layout is shown in Figure _, with notable adjustments for each section summarized in Table _.
 
+<div align="center">
 
 | Section  | Sensor Used | Modifiers  |
 |-----------|-----------|-----------|
 | 1    | Line  | velocity = 50% if turn detected  | 
 | 2    | IMU  | velocity = 70%  |
-| 3    | Line  | velocity = 85%, 75% if harse turn |
+| 3    | Line  | velocity = 85%, 75% if harsh turn |
 | 4    | Line  | None |
-| 5.0    | IMU  | velocity = 150%  |
-| 5.1   | IMU  | velocity = 70%   |
-| 5.2   | IMU  | velocity = 120%   |
-| 5.3    | IMU  | velocity = 120%   |
-| 5.4    | IMU | velocity = 120%   |
-| 5.5   | IMU | None |
+| 5.0  | IMU  | velocity = 150%  |
+| 5.1  | IMU  | velocity = 70%   |
+| 5.2  | IMU  | velocity = 120%   |
+| 5.3  | IMU  | velocity = 120%   |
+| 5.4  | IMU  | velocity = 120%   |
+| 5.5  | IMU  | None |
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table _ . Velocity Modifications made in Each Section of FSM
+</div>
 
+<p align="center">
+  Table _ . Velocity Modifications made in Each Section of FSM
+</p>
 
 <p align="center">
   <img height="300" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
@@ -190,6 +204,8 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 </p>
 
 ### Gain Detirmination
+[Back to Software](#software)
+
 To account for potential discrepancies between the motors, we conducted a test to determine their individual gains. Each motor was driven at varying effort levels from 0% to 70%, up to the point where the wheels began to slip. The motor gain was then calculated by plotting the steady-state velocity against the applied motor voltage, as shown in Figure _. A linear fit of the data provided critical insights into both the motor gain and the voltage required to overcome static friction. These values were incorporated into the control system to ensure Romi maintained a nearly perfect straight-line trajectory when no corrective input was applied.
 
 <p align="center">
