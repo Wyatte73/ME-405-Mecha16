@@ -114,7 +114,18 @@ Standard mounting hardware was used and provided, but any way to mount the vario
 ## Software
 [Back to top](#Table-of-Contents)
 
+### Source Code
+
+[main.py](./main.py)
+[encoder.py](./encoder.py)
+[motor.py](./motor.py)
+[imu.py](./imu.py)
+[line.py](./line.py)
+[pid.py](./pid.py)
+
+
 ### Hardware Drivers
+[Back to top](#Table-of-Contents)
 
 The repository contains the main program file and all necessary hardware driver modules. [main.py](./main.py) is responsible for initializing the hardware and drivers, setting up and executing the scheduler, and managing the finite state machine (FSM). The following driver modules provide hardware interfacing. Further detail is available within each respetive file:
 
