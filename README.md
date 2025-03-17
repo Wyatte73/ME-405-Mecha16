@@ -218,7 +218,7 @@ To optimize Romi’s performance, the track was divided into 10 sections, with s
 </div>
 
 <p align="center">
-  <img height="300" alt="Screenshot 2025-03-16 131934" src="https://github.com/user-attachments/assets/cf0435aa-04fa-48b5-b99e-dcdc10af38d2" />
+  <img height="300" alt="Screenshot 2025-03-16 233342" src="https://github.com/user-attachments/assets/aa597ff3-7d3e-46fa-a126-32525fe1e049" />
 </p>
 <p align="center">
   Figure 14. Course Layout with Denoted Sections
