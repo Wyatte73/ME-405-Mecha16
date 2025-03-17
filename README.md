@@ -61,7 +61,7 @@ Figure 5. Motor and Encoder Pair
 ### Microcontroller
 [Back to top](#Table-of-Contents)
 
-The STM32 Nucleo-L476RG microcontroller served as the central processing unit for Romi and was provided by the professor. Acting as Romi’s "brain," it processed sensor data, interpreted the readings, and executed control algorithms to drive the motors. This allowed Romi to navigate the course effectively based on real-time feedback. Figure 6 provides a visual representation of the Nucleo board. Futher documentation can be found [here](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf). Further documentation on the MicroPython can be found [here](https://docs.micropython.org/en/latest/library/pyb.html)
+The STM32 Nucleo-L476RG microcontroller served as the central processing unit for Romi and was provided by the professor. Acting as Romi’s "brain," it processed sensor data, interpreted the readings, and executed control algorithms to drive the motors. This allowed Romi to navigate the course effectively based on real-time feedback. Figure 6 provides a visual representation of the Nucleo board. Further documentation on the Nucleo-L476RG can be found [here](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf). Further documentation on the MicroPython can be found [here](https://docs.micropython.org/en/latest/library/pyb.html)
 
 <p align="center">
   <img width="300" alt="[Screenshot 2025-03-16 142309" src="https://github.com/user-attachments/assets/ad4143ad-f2fc-4ce5-9881-01eb9068ed2d" />
