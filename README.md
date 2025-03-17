@@ -91,7 +91,7 @@ Figure 9. Romi Bump Sensor
 ### Additional Components
 [Back to top](#Table-of-Contents)
 
-An HC-05 Bluetooth module was integrated into the system to enable wireless REPL access over Bluetooth. While not essential, this feature provided convenience by eliminating the need for a USB connection between Romi and the computer. To implement this, the HC-05 module was reconfigured with a new name and password, and its baud rate was increased to 460800 for improved communication speed. The HC-05 Bluetooth module used in the project is shown in Figure 10.
+An HC-05 Bluetooth module was integrated into the system to enable wireless REPL(PuTTY) access over Bluetooth. While not essential, this feature provided convenience by eliminating the need for a USB connection between Romi and the computer. To implement this, the HC-05 module was reconfigured with a new name and password, and its baud rate was increased to 460800 for improved communication speed. The HC-05 Bluetooth module used in the project is shown in Figure 10.
 
 <p align="center">
   <img width="350" alt="[Screenshot 2025-03-16 132414" src="https://github.com/user-attachments/assets/7a990adc-fc7c-4450-bb18-58cdf33d645e" />
