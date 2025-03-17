@@ -14,6 +14,7 @@
   - [Gain Detirmination](#gain-detirmination)
 - [Control Therory](#control-theory)
 - [Getting Started](#getting-started)
+- [Reflections](#reflections)
 
 ## Project Overview
 [Back to top](#Table-of-Contents)
@@ -234,3 +235,7 @@ To set up via USB, start by powering on Romi using the power button. Connect the
 For Bluetooth setup, save the Bluetooth_Configurator.py file as main.py. Power off Romi, then while holding the button on the HC-05 Bluetooth module, turn Romi back on. The Bluetooth module’s LED should begin blinking slowly, indicating it is in configuration mode. In PuTTY, press Ctrl+C and Ctrl+D to run the script and configure Bluetooth. Identify the serial port assigned to the Bluetooth module, then open a new PuTTY session with a baud rate of 460800. At this point, Bluetooth should be fully operational for wireless communication.
 
 
+## Reflections
+[Back to top](#Table-of-Contents)
+
+At the start of this course, we had limited experience with Python programming and its application in embedded systems. Through this project, we learned how to break down a seemingly complex task into manageable steps, focusing on key aspects such as motor control, encoder data acquisition, task scheduling, line following, and heading estimation. Since we had not yet taken a formal controls course, understanding feedback systems was particularly challenging, but successfully implementing a working control loop was highly rewarding. Given more time, we would have liked to develop a system capable of tracking a specific radius and arc length, allowing for more efficient and reliable navigation of certain track sections. One of our proudest achievements was progressing from having minimal knowledge at the beginning to confidently programming Romi’s behavior using sensor inputs with minimal errors.
