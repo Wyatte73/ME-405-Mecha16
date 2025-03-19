@@ -12,7 +12,7 @@
   - [Source Code](#source-code)
   - [Hardware Drivers](#hardware-drivers)
   - [Task Diagram and FSM](#task-diagram-and-fsm)
-  - [Gain Detirmination](#gain-detirmination)
+  - [Gain Detirmination](#gain-determination)
 - [Control Therory](#control-theory)
 - [Getting Started](#getting-started)
 - [Reflections](#reflections)
